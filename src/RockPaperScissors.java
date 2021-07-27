@@ -5,10 +5,10 @@ public class RockPaperScissors {
     public static void main(String[] args) {
         boolean wantToPlay = true;
         Scanner inputScanner = new Scanner(System.in);
-        Random rseed = new Random();
+        Random rSeed = new Random();
         int nRounds = 0; // 1 to 10, inclusive.
-        int user_rps = 0;  // 1. Rock, 2. Paper, 3. Scissors
-        int computer_rps = 0;  // 1. Rock, 2. Paper, 3. Scissors
+        int userRps = 0;  // 1. Rock, 2. Paper, 3. Scissors
+        int computerRps = 0;  // 1. Rock, 2. Paper, 3. Scissors
         String[] rpsArray = {"Rock", "Paper", "Scissors"};
         String input;
         int nUserWin;
@@ -39,8 +39,8 @@ public class RockPaperScissors {
                 while (!validAnswer) {
                     System.out.println("Type in integer: 1. Rock, 2. Paper, 3. Scissors");
                     try{
-                        user_rps = Integer.parseInt(inputScanner.nextLine());
-                        if (0< user_rps && user_rps <=3){
+                        userRps = Integer.parseInt(inputScanner.nextLine());
+                        if (0< userRps && userRps <=3){
                             validAnswer = true;
                         }
                         else{
@@ -51,12 +51,12 @@ public class RockPaperScissors {
                         System.out.println("Enter integer value.");
                     }
                 }
-                System.out.println("User selected: " + rpsArray[user_rps-1]);
-                computer_rps = 1 + rseed.nextInt(3);
-                System.out.println("Computer selected: " + rpsArray[computer_rps-1]);
+                System.out.println("User selected: " + rpsArray[userRps-1]);
+                computerRps = 1 + rSeed.nextInt(3);
+                System.out.println("Computer selected: " + rpsArray[computerRps-1]);
 
                 // win/loss logic
-                switch (reportResults(user_rps, computer_rps)){
+                switch (reportResults(userRps, computerRps)){
                     case 1:
                         nUserWin +=1;
                         System.out.println("You won this round.");
